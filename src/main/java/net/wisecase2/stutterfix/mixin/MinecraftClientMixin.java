@@ -8,7 +8,7 @@ import org.spongepowered.asm.mixin.injection.ModifyArg;
 public class MinecraftClientMixin {
 
     @ModifyArg(method = "run()V", at = @At(value = "INVOKE", target = "java/lang/Thread.setPriority (I)V"), index = 0)
-    private static int setMinecraftClientPriority(int p) {
+    private int setMinecraftClientPriority(int p) {
         int available_processors = Runtime.getRuntime().availableProcessors();
         return switch (available_processors) {
             case 1, 2, 3, 4 -> 5;

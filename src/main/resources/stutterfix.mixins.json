@@ -3,6 +3,9 @@
 	"package": "net.wisecase2.stutterfix.mixin",
 	"compatibilityLevel": "JAVA_17",
 	"mixins": [
+		"ClientMainMixin",
+		"MinecraftClientMixin",
+		"MinecraftServerMixin",
 		"utilMixin"
 
 	],
