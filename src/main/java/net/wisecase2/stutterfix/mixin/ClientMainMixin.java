@@ -14,7 +14,7 @@ public class ClientMainMixin {
     }
 
     @Inject(method = "main([Ljava/lang/String;)V", at = @At(value = "INVOKE", target = "net/minecraft/client/MinecraftClient.isRunning ()Z", shift = At.Shift.AFTER))
-    private static void setThreadYield(CallbackInfo ci) {
-        Thread.yield();
+    private static void setThreadYield(CallbackInfo ci) throws InterruptedException {
+        Thread.sleep(10);
     }
 }

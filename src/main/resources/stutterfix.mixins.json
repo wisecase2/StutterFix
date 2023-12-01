@@ -5,7 +5,8 @@
 	"mixins": [
 		"ClientMainMixin",
 		"MinecraftClientMixin",
-		"MinecraftServerMixin",
+		"IntegratedServerMixin",
+		"ServerMainMixin",
 		"utilMixin"
 
 	],

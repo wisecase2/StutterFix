@@ -3,8 +3,8 @@ package net.wisecase2.stutterfix.mixin;
 import net.minecraft.util.Util;
 
 import org.spongepowered.asm.mixin.*;
-import java.util.concurrent.ForkJoinPool;
-import java.util.concurrent.ForkJoinWorkerThread;
+
+import java.util.concurrent.*;
 import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.ModifyVariable;
@@ -22,12 +22,10 @@ public abstract class utilMixin {
 		}else{
 			return 1;
 		}
-    }
+	}
 
 	@Inject(method = "method_28123", at = @At(value = "INVOKE", target = "java/util/concurrent/ForkJoinWorkerThread.setName (Ljava/lang/String;)V", shift = At.Shift.AFTER), locals = LocalCapture.CAPTURE_FAILHARD)
 	private static void setPriorityOfThreadMainWorker(String string, ForkJoinPool forkjoinpool, CallbackInfoReturnable ci, ForkJoinWorkerThread forkJoinWorkerThread) {
 		forkJoinWorkerThread.setPriority(1);
 	}
-
-
 }
