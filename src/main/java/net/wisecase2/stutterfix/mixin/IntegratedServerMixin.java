@@ -22,13 +22,13 @@ public class IntegratedServerMixin {
                 serverpriority = 5;
                 break;
             case 5, 6:
-                serverpriority = 6;
-                break;
-            case 7, 8:
                 serverpriority = 7;
                 break;
-            default:
+            case 7, 8:
                 serverpriority = 8;
+                break;
+            default:
+                serverpriority = 9;
         };
 
         serverThread.setPriority(serverpriority);

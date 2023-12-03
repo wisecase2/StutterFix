@@ -17,8 +17,8 @@ public abstract class utilMixin {
 	private static int setNumThreadsOfMainWorker(int p) {
 		if(p >= 7){
 			return p - 4;
-		}else if(p >= 3){
-			return 2;
+		}else if(p >= 3) {
+			return 1;
 		}else{
 			return 1;
 		}
