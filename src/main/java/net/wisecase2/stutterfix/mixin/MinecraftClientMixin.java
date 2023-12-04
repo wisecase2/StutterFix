@@ -16,12 +16,6 @@ import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 
 @Mixin(net.minecraft.client.MinecraftClient.class)
 public class MinecraftClientMixin {
-
-    @Inject(method = "run()V", at = @At(value = "INVOKE", target = "java/lang/Runtime.availableProcessors ()I", shift = At.Shift.AFTER))
-    private void setMinecraftClientPriority(CallbackInfo ci) {
-        Thread.currentThread().setPriority(10);
-    }
-
     @Redirect(method = "render(Z)V", at = @At(value = "INVOKE", target = "java/lang/Thread.yield ()V"))
     private void removeThreadYield() {
     }
