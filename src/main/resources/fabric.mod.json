@@ -26,8 +26,8 @@
 		"stutterfix.mixins.json"
 	],
 	"depends": {
-		"fabricloader": ">=0.14.24",
-		"minecraft": "~1.20.2",
+		"fabricloader": ">=0.15.00",
+		"minecraft": "~1.20.3",
 		"java": ">=17",
 		"fabric-api": "*"
 	},
