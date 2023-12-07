@@ -6,7 +6,6 @@
 		"ClientMainMixin",
 		"MinecraftClientMixin",
 		"IntegratedServerMixin",
-		"ServerMainMixin",
 		"utilMixin"
 
 	],
