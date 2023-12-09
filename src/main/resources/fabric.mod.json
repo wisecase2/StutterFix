@@ -3,7 +3,7 @@
 	"id": "stutterfix",
 	"version": "${version}",
 	"name": "StutterFix",
-	"description": "This mod limits the number of threads available for chunk generation in order to eliminate stuttering.",
+	"description": "This mod limits the number of threads available for chunk generation in order to reduce stuttering.",
 	"authors": [
 		"Wisecase2"
 	],
