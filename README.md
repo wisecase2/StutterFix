@@ -74,7 +74,5 @@ Here is the list of worker threads according to the number of processor threads:
   </tbody>
 </table>
 
-Notice to Sodium owner: In the MinecraftClientMixin class, if you merge preRender() with postRender() (in the order preRender first and postRender second) and inject it into the return of the Render() method, it caused drastic improvements in my implementation, Not only does the mouse have better reaction time and it's harder to stutter. You just need to check that you have no problem doing so.
-
 Demonstration (old):
 https://youtu.be/AaZ1jAqitQk
