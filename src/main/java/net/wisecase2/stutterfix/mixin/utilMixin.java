@@ -50,6 +50,13 @@ public abstract class utilMixin {
 		}else if(Objects.equals(string, "Main")) { //MAIN_WORKER_EXECUTOR
 			int i = MathHelper.clamp(Runtime.getRuntime().availableProcessors() - 1, 1, getMaxBackgroundThreads());
 			int next_worker_id = NEXT_WORKER_ID.get() - 1;
+
+			if (i >= 7) {
+				i -= 4;
+			} else {
+				i = 1;
+			}
+
 			int halfNumWorkerMainThreads = i / 2;
 
 			if (next_worker_id > halfNumWorkerMainThreads) {
