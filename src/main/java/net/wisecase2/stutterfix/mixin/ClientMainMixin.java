@@ -12,7 +12,7 @@ import org.spongepowered.asm.mixin.injection.callback.LocalCapture;
 @Mixin(net.minecraft.client.main.Main.class)
 public class ClientMainMixin {
 
-    @Inject(method = "main([Ljava/lang/String;Z)V", at = @At(value = "INVOKE", target = "java/lang/Thread.setName (Ljava/lang/String;)V", shift = At.Shift.AFTER))
+    @Inject(method = "main([Ljava/lang/String;)V", at = @At(value = "INVOKE", target = "java/lang/Thread.setName (Ljava/lang/String;)V", shift = At.Shift.AFTER))
     private static void setMaxPriorityClient(CallbackInfo ci) {
         Thread.currentThread().setPriority(10);
     }

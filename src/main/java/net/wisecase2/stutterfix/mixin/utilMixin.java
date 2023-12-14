@@ -30,9 +30,7 @@ public abstract class utilMixin {
 	@ModifyVariable(method = "createWorker", at = @At("STORE"), ordinal = 0)
 	private static int setNumThreadsOfMainWorker(int p, String name) {
 
-		if(Objects.equals(name, "Bootstrap")){
-			return p; // BOOTSTRAP_EXECUTOR
-		}else if(Objects.equals(name, "Main")){
+		if(Objects.equals(name, "Main")){
 			if (p >= 7) {	// MAIN_WORKER_EXECUTOR
 				return p - 4;
 			} else {
@@ -45,9 +43,7 @@ public abstract class utilMixin {
 
 	@Inject(method = "method_28123", at = @At(value = "INVOKE", target = "java/util/concurrent/ForkJoinWorkerThread.setName (Ljava/lang/String;)V", shift = At.Shift.AFTER), locals = LocalCapture.CAPTURE_FAILHARD)
 	private static void setPriorityOfThreadMainWorker(String string, ForkJoinPool forkjoinpool, CallbackInfoReturnable ci, ForkJoinWorkerThread forkJoinWorkerThread) {
-		if(Objects.equals(string, "Bootstrap")) { //BOOTSTRAP_EXECUTOR
-			forkJoinWorkerThread.setPriority(1);
-		}else if(Objects.equals(string, "Main")) { //MAIN_WORKER_EXECUTOR
+		if(Objects.equals(string, "Main")) { //MAIN_WORKER_EXECUTOR
 			int i = MathHelper.clamp(Runtime.getRuntime().availableProcessors() - 1, 1, getMaxBackgroundThreads());
 			int next_worker_id = NEXT_WORKER_ID.get() - 1;
 
