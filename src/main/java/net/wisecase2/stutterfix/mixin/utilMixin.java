@@ -24,9 +24,6 @@ public abstract class utilMixin {
 	@Shadow @Final
 	static Logger LOGGER;
 
-	@Shadow @Final
-	private static AtomicInteger NEXT_WORKER_ID;
-
 	@ModifyVariable(method = "createWorker", at = @At("STORE"), ordinal = 0)
 	private static int setNumThreadsOfMainWorker(int p, String name) {
 
@@ -42,10 +39,10 @@ public abstract class utilMixin {
 	}
 
 	@Inject(method = "method_28123", at = @At(value = "INVOKE", target = "java/util/concurrent/ForkJoinWorkerThread.setName (Ljava/lang/String;)V", shift = At.Shift.AFTER), locals = LocalCapture.CAPTURE_FAILHARD)
-	private static void setPriorityOfThreadMainWorker(String string, ForkJoinPool forkjoinpool, CallbackInfoReturnable ci, ForkJoinWorkerThread forkJoinWorkerThread) {
+	private static void setPriorityOfThreadMainWorker(String string, AtomicInteger atomicInteger, ForkJoinPool forkjoinpool, CallbackInfoReturnable ci, ForkJoinWorkerThread forkJoinWorkerThread) {
 		if(Objects.equals(string, "Main")) { //MAIN_WORKER_EXECUTOR
 			int i = MathHelper.clamp(Runtime.getRuntime().availableProcessors() - 1, 1, getMaxBackgroundThreads());
-			int next_worker_id = NEXT_WORKER_ID.get() - 1;
+			int next_worker_id = atomicInteger.get() - 1;
 
 			if (i >= 7) {
 				i -= 4;
