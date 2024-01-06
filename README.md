@@ -31,9 +31,6 @@
 
 <p>In version 0.1.8, I created the option in the menu to configure threads and also removed the removal of Thread.yield() as it was conflicting with other mods like VulkanMod.</p>
 
-<h1>Why does the game stutter?</h1>
-<p>After researching the cause of the stuttering, I finally discovered the cause, in more technical terms, the command "GLFW.glfwSwapBuffers(window);" it is the cause of the stuttering when the cpu is overloaded, it means it is a problem in opengl when executing the commands. I will do more research to find out if the problem is fixable.</p>
-
 <h1> Warnings</h1>
 <p>The mod does not affect the stuttering problem that occurs due to the garbage collector, I reduced the problem by using -XX:+UseShenandoahGC and allocating more memory in jvm arguments, do a search for jvm arguments for minecraft to get more information.</p>
 
