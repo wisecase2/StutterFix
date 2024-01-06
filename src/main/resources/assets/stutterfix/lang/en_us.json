@@ -1,0 +1,15 @@
+{
+  "stutterfix.name": "StutterFix",
+  "stutterfix.options.name": "StutterFix Options",
+  "stutterfix.options.worker_threads": "Worker threads count",
+  "stutterfix.options.threads": "%s threads",
+  "stutterfix.options.worker_threads.tooltip": "It is the number of threads running to perform tasks such as generating chunks. The smaller the value, the less CPU overhead, reducing stuttering, and the slower the chunk generation speed.",
+  "stutterfix.options.Worker_threads_priority_cut": "Priority cutoff point",
+  "stutterfix.options.priority_cut": "%s",
+  "stutterfix.options.Worker_threads_priority_cut.tooltip": "Indicates the cutoff point for the priority of worker threads. The higher the value, the higher the first part of the threads will be with normal priority and the lower the last part will be with minimum priority. The value must be less than the number of worker threads to have the cutoff point, otherwise all threads will have normal priority. Threads with minimum priority help reduce stuttering.",
+  "stutterfix.options.render_thread_priority": "Render thread priority",
+  "stutterfix.options.render_thread_priority.tooltip": "The render thread is where the client runs from the player to rendering.",
+  "stutterfix.options.server_thread_priority": "Server thread priority",
+  "stutterfix.server_thread_priority.tooltip": "In singleplayer mode, the game starts the integrated server that runs the entire world, such as ticks, entities and initializing the generation of chunks (which will be executed in the worker threads). This option only appears when playing in a world in singleplayer mode.",
+  "stutterfix.options.thread_priority": "%s"
+}

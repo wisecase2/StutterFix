@@ -3,11 +3,10 @@
 	"package": "net.wisecase2.stutterfix.mixin",
 	"compatibilityLevel": "JAVA_17",
 	"mixins": [
-		"ClientMainMixin",
-		"MinecraftClientMixin",
-		"IntegratedServerMixin",
-		"utilMixin"
-
+		"client.MinecraftClientMixin",
+		"server.MinecraftServerMixin",
+		"gui.OptionsScreenMixin",
+		"util.utilMixin"
 	],
 	"injectors": {
 		"defaultRequire": 1
