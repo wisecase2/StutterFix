@@ -1,0 +1,16 @@
+{
+	"required": true,
+	"package": "net.wisecase2.stutterfix.mixin",
+	"compatibilityLevel": "JAVA_17",
+	"plugin": "net.wisecase2.stutterfix.mixin.StutterFixMixinPlugin",
+	"mixins": [
+		"client.MinecraftClientMixin",
+		"client.RemoveYieldMixin",
+		"server.MinecraftServerMixin",
+		"gui.OptionsScreenMixin",
+		"util.utilMixin"
+	],
+	"injectors": {
+		"defaultRequire": 1
+	}
+}
