@@ -32,6 +32,8 @@
 
 <p>In version 0.1.8, I created the option in the menu to configure threads and also removed the removal of Thread.yield() as it was conflicting with other mods like VulkanMod.</p>
 
+<p>In version 0.1.9, the remove yield() option was added, if you use VulcanMod, this option will not appear in the menu. The tooltip has been improved.</p>
+
 <h1> Warnings</h1>
 <p>The mod does not affect the stuttering problem that occurs due to the garbage collector, I reduced the problem by using -XX:+UseShenandoahGC and allocating more memory in jvm arguments, do a search for jvm arguments for minecraft to get more information.</p>
 

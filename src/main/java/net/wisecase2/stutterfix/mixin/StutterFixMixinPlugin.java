@@ -62,5 +62,3 @@ public class StutterFixMixinPlugin  implements IMixinConfigPlugin {
 
     }
 }
-
-

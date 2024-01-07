@@ -33,6 +33,7 @@ public class StutterFix implements ModInitializer {
 	public static boolean isInitializedRenderThread = false;
 	public static boolean isInitializedServerThread = false;
 
+
 	public static void loadMainWorkerExecutor() {
 
 		int threadCount;
@@ -123,7 +124,6 @@ public class StutterFix implements ModInitializer {
 		return MathHelper.clamp(availableProcessors - 1, 1,
 				StutterFix.getMaxBackgroundThreads());
 	}
-
 
 	public static int getMaxBackgroundThreads() {
 		String string = System.getProperty("max.bg.threads");
