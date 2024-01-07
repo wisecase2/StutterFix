@@ -33,7 +33,6 @@ public class StutterFix implements ModInitializer {
 	public static boolean isInitializedRenderThread = false;
 	public static boolean isInitializedServerThread = false;
 
-
 	public static void loadMainWorkerExecutor() {
 
 		int threadCount;
