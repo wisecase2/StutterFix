@@ -2,7 +2,7 @@
 
 <p>StutterFix is a mod that allows you to configure the main threads of the game, allowing you to control stuttering. By default, the mod already comes with an approximate configuration to reduce stuttering.</p>
 
-<p>The new version 0.18 allows you to configure threads, I added a new option in the menu.</p>
+<p>The new version 0.1.8 allows you to configure threads, I added a new option in the menu.</p>
 
 <h1>Option Menu </h1>
 
@@ -33,6 +33,9 @@
 <p>In version 0.1.8, I created the option in the menu to configure threads and also removed the removal of Thread.yield() as it was conflicting with other mods like VulkanMod.</p>
 
 <p>In version 0.1.9, the remove yield() option was added, if you use VulcanMod, this option will not appear in the menu. The tooltip has been improved.</p>
+
+<p>In version 0.2.0, changes were made to the gui, to resolve compatibility issues with some mods, such as <strong>bedrockify</strong>.</p>
+
 
 <h1> Warnings</h1>
 <p>The mod does not affect the stuttering problem that occurs due to the garbage collector, I reduced the problem by using -XX:+UseShenandoahGC and allocating more memory in jvm arguments, do a search for jvm arguments for minecraft to get more information.</p>

@@ -9,7 +9,7 @@ import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 
 @Mixin(MinecraftServer.class)
 public class MinecraftServerMixin {
-    @Inject(method = "runServer()V", at = @At(value = "INVOKE", target = "net/minecraft/util/Util.getMeasuringTimeNano ()J"))
+    @Inject(method = "runServer()V", at = @At(value = "INVOKE", target = "net/minecraft/util/Util.getMeasuringTimeMs ()J"))
     private void loadThread(CallbackInfo ci) {
         StutterFix.loadServerThread(Thread.currentThread());
         StutterFix.configPriorityServerThread();

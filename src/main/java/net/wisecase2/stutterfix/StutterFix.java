@@ -124,6 +124,7 @@ public class StutterFix implements ModInitializer {
 				StutterFix.getMaxBackgroundThreads());
 	}
 
+
 	public static int getMaxBackgroundThreads() {
 		String string = System.getProperty("max.bg.threads");
 		if (string != null) {

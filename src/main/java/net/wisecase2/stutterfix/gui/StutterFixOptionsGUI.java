@@ -28,7 +28,7 @@ public class StutterFixOptionsGUI extends GameOptionsScreen {
 
 
     protected void init() {
-        this.optionButtons = (OptionListWidget)this.addDrawableChild(new OptionListWidget(this.client, this.width, this.height - 64, 32, 25));
+        this.optionButtons = new OptionListWidget(this.client, this.width, this.height, 32, this.height - 32, 25);
 
         int max_threads_count = Runtime.getRuntime().availableProcessors();
 
@@ -77,15 +77,17 @@ public class StutterFixOptionsGUI extends GameOptionsScreen {
             }));
         }
 
+
+        this.addSelectableChild(this.optionButtons);
         this.addDrawableChild(ButtonWidget.builder(ScreenTexts.DONE, (button) -> {
             StutterFix.saveThread.execute(() -> { StutterFix.threadconfig.saveConfig(); });
             this.client.setScreen(this.parent);
         }).dimensions(this.width / 2 - 100, this.height - 27, 200, 20).build());
     }
 
+
     public void render(DrawContext context, int mouseX, int mouseY, float delta) {
-        super.render(context, mouseX, mouseY, delta);
-        context.drawCenteredTextWithShadow(this.textRenderer, this.title, this.width / 2, 20, 16777215);
+        this.render(context, this.optionButtons, mouseX, mouseY, delta);
     }
 
     public void renderBackground(DrawContext context, int mouseX, int mouseY, float delta) {
