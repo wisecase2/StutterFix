@@ -31,10 +31,18 @@ public abstract class OptionsScreenMixin extends Screen {
     @Shadow
     protected abstract ButtonWidget createButton(Text message, Supplier<Screen> screenSupplier);
 
+    /*@ModifyArg(method = "init()V", at = @At(value = "INVOKE", target = "net/minecraft/client/gui/widget/GridWidget$Adder.add (Lnet/minecraft/client/gui/widget/Widget;I)Lnet/minecraft/client/gui/widget/Widget;"), index = 0)
+    private Widget modifyArg(Widget arg0) {
+        return this.createButton(Text.translatable("stutterfix.name"), () -> {
+            return new StutterFixOptionsGUI(this, this.settings);
+        });
+    }*/
+
     @Inject(method = "init()V", at = @At(value = "INVOKE", target = "net/minecraft/client/gui/widget/GridWidget$Adder.add (Lnet/minecraft/client/gui/widget/Widget;I)Lnet/minecraft/client/gui/widget/Widget;", ordinal = 0, shift = At.Shift.AFTER), locals = LocalCapture.CAPTURE_FAILHARD)
     private void inject_StutterFixOption(CallbackInfo ci, GridWidget gridWidget, GridWidget.Adder adder) {
         adder.add(        this.createButton(Text.translatable("stutterfix.name"), () -> {
             return new StutterFixOptionsGUI(this, this.settings);
         }), 2);
     }
+
 }
