@@ -5,6 +5,7 @@ import net.fabricmc.api.Environment;
 import net.minecraft.client.gui.DrawContext;
 import net.minecraft.client.gui.screen.Screen;
 import net.minecraft.client.gui.screen.option.GameOptionsScreen;
+import net.minecraft.client.gui.screen.option.OptionsScreen;
 import net.minecraft.client.gui.widget.OptionListWidget;
 import net.minecraft.client.option.GameOptions;
 import net.minecraft.client.option.SimpleOption;
@@ -28,7 +29,8 @@ public class StutterFixOptionsGUI extends GameOptionsScreen {
 
 
     protected void init() {
-        this.optionButtons = (OptionListWidget)this.addDrawableChild(new OptionListWidget(this.client, this.width, this.height - 64, 32, 25));
+        this.optionButtons = (OptionListWidget)this.addDrawableChild(new OptionListWidget(this.client, this.width, this.height - 64, (GameOptionsScreen)(Object)this));
+
 
         int max_threads_count = Runtime.getRuntime().availableProcessors();
 
@@ -80,6 +82,7 @@ public class StutterFixOptionsGUI extends GameOptionsScreen {
         this.addDrawableChild(ButtonWidget.builder(ScreenTexts.DONE, (button) -> {
             StutterFix.saveThread.execute(() -> { StutterFix.threadconfig.saveConfig(); });
             this.client.setScreen(this.parent);
+            this.close();
         }).dimensions(this.width / 2 - 100, this.height - 27, 200, 20).build());
     }
 
@@ -88,7 +91,4 @@ public class StutterFixOptionsGUI extends GameOptionsScreen {
         context.drawCenteredTextWithShadow(this.textRenderer, this.title, this.width / 2, 20, 16777215);
     }
 
-    public void renderBackground(DrawContext context, int mouseX, int mouseY, float delta) {
-        this.renderBackgroundTexture(context);
-    }
 }
