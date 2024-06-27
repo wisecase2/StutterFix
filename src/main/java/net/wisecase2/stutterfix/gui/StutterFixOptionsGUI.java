@@ -73,4 +73,9 @@ public class StutterFixOptionsGUI extends GameOptionsScreen {
         }
     }
 
+    public void close() {
+        StutterFix.saveThread.execute(() -> { StutterFix.threadconfig.saveConfig(); });
+        super.close();
+    }
+
 }
