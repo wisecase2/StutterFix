@@ -1,0 +1,19 @@
+{
+  "stutterfix.name": "StutterFix",
+  "stutterfix.options.name": "StutterFix 選項",
+  "stutterfix.options.worker_threads": "工作執行緒數",
+  "stutterfix.options.threads": "%s 個執行緒",
+  "stutterfix.options.worker_threads.tooltip": "這是用於執行任務如生成區塊的執行緒數量。數值越小，CPU 負擔越低，減少卡頓，但區塊生成速度會降低。\n\n預設 原版： %s\n預設 StutterFix： %s",
+  "stutterfix.options.Worker_threads_priority_cut": "執行緒優先度截止點",
+  "stutterfix.options.priority_cut": "%s",
+  "stutterfix.options.Worker_threads_priority_cut.tooltip": "指示執行緒優先度的截止點。數值越高，前段執行緒的優先度越高，後段執行緒的優先度越低。值必須小於執行緒數量，否則所有執行緒都會有正常優先度。具有最低優先度的執行緒有助於減少卡頓。",
+  "stutterfix.options.render_thread_priority": "渲染執行緒優先度",
+  "stutterfix.options.render_thread_priority.tooltip": "渲染執行緒是用戶端運行的地方，如玩家、聲音、輸入和渲染。\n\n預設 原版： %s",
+  "stutterfix.options.server_thread_priority": "伺服器執行緒優先度",
+  "stutterfix.options.server_thread_priority.tooltip": "在單人遊戲模式下，遊戲啟動運行整合伺服器來運行整個世界，如刻、實體和初始化區塊生成（將在執行緒中執行）。此選項僅在單人遊戲模式下的世界中顯示。\n\n預設 原版： %s",
+  "stutterfix.options.thread_priority": "%s",
+  "stutterfix.options.remove_yield": "移除 Yield()",
+  "stutterfix.options.remove_yield.tooltip": "渲染執行緒每個循環都有一個名為 yield() 的調用，用於通知「調度程序」當前執行緒願意放棄處理器的當前使用權給其他執行緒。移除 yield() 可使 FPS 更加穩定。\n\n預設 原版： 保留",
+  "stutterfix.options.remove": "移除",
+  "stutterfix.options.keep": "保留"
+}
