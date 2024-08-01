@@ -20,6 +20,7 @@ public class ThreadConfig {
     public int renderThreadPriority;
     public int serverThreadPriority;
     public boolean renderRemoveYield;
+    public boolean hideGui;
     private Path configPath;
 
     private static final Gson GSON = new GsonBuilder()
@@ -35,6 +36,7 @@ public class ThreadConfig {
         this.renderThreadPriority = (availableProcessors > 4)? 10: 5;
         this.serverThreadPriority = (availableProcessors > 4)? 8: 5;
         this.renderRemoveYield = false;
+        this.hideGui = false;
     }
 
     public void validateConfig(){

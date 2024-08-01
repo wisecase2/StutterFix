@@ -7,6 +7,7 @@ import net.minecraft.client.gui.widget.DirectionalLayoutWidget;
 import net.minecraft.client.gui.widget.GridWidget;
 import net.minecraft.client.option.GameOptions;
 import net.minecraft.text.Text;
+import net.wisecase2.stutterfix.StutterFix;
 import net.wisecase2.stutterfix.gui.StutterFixOptionsGUI;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.Shadow;
@@ -32,9 +33,11 @@ public abstract class OptionsScreenMixin extends Screen {
 
     @Inject(method = "init()V", at = @At(value = "INVOKE", target = "net/minecraft/client/gui/widget/GridWidget$Adder.add (Lnet/minecraft/client/gui/widget/Widget;)Lnet/minecraft/client/gui/widget/Widget;", ordinal = 0, shift = At.Shift.BEFORE), locals = LocalCapture.CAPTURE_FAILHARD)
     private void inject_StutterFixOption(CallbackInfo ci, DirectionalLayoutWidget directionalLayoutWidget, DirectionalLayoutWidget directionalLayoutWidget2, GridWidget gridWidget, GridWidget.Adder adder) {
-        adder.add(        this.createButton(Text.translatable("stutterfix.name"), () -> {
-            return new StutterFixOptionsGUI((Screen)(Object)this, (GameOptions)(Object)this.settings);
-        }), 2);
+        if(!StutterFix.threadconfig.hideGui) {
+            adder.add(this.createButton(Text.translatable("stutterfix.name"), () -> {
+                return new StutterFixOptionsGUI((Screen) (Object) this, (GameOptions) (Object) this.settings);
+            }), 2);
+        }
     }
 
 }
