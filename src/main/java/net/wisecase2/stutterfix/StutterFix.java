@@ -14,6 +14,8 @@ import java.util.concurrent.ForkJoinPool;
 import java.util.concurrent.ForkJoinWorkerThread;
 import java.util.concurrent.atomic.AtomicInteger;
 
+import net.minecraft.util.thread.NameableExecutor;
+
 public class StutterFix implements ModInitializer {
     public static final Logger LOGGER = LoggerFactory.getLogger("stutterfix");
 
@@ -25,7 +27,7 @@ public class StutterFix implements ModInitializer {
 
 	public static boolean removeYieldOption = !FabricLoader.getInstance().isModLoaded("vulkanmod");
 
-	public static ExecutorService mainWorkerExecutor;
+	public static NameableExecutor mainWorkerExecutor;
 	public static Thread renderThread;
 	public static Thread serverThread;
 
@@ -48,7 +50,7 @@ public class StutterFix implements ModInitializer {
 
 		AtomicInteger NEXT_WORKER_ID = new AtomicInteger(0);
 
-		mainWorkerExecutor = new ForkJoinPool(threadCount, forkJoinPool -> {
+		ExecutorService executorService = new ForkJoinPool(threadCount, forkJoinPool -> {
 			ForkJoinWorkerThread forkJoinWorkerThread = new ForkJoinWorkerThread(forkJoinPool){
 
 				@Override
@@ -69,6 +71,7 @@ public class StutterFix implements ModInitializer {
 
 			return forkJoinWorkerThread;
 		}, StutterFix::uncaughtExceptionHandler, true);
+		mainWorkerExecutor = new NameableExecutor(executorService);
 		isInitializedMainWorkerExecutor = true;
 	}
 
